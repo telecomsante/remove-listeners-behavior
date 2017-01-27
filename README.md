@@ -30,6 +30,10 @@ This is done at the expense of using an alternate registration method to add an 
 </dom-module>
 ```
 
+## Documentation and demo
+
+Documentation and demo are available on the project's [Github pages](https://telecomsante.github.io/remove-listeners-behavior/).
+
 ## License
 
 The source code of this project is licensed under the terms of the [MIT License](LICENSE.md).
