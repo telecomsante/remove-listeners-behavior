@@ -29,3 +29,7 @@ This is done at the expense of using an alternate registration method to add an 
   </script>
 </dom-module>
 ```
+
+## License
+
+The source code of this project is licensed under the terms of the [MIT License](LICENSE.md).
