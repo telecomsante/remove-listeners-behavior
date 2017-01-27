@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>remove-listeners-behavior test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../remove-listeners-behavior.html">
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+  </head>
+  <body>
+    <dom-module id="demo-element">
+      <template>
+        <content></content>
+      </template>
+      <script>
+        HTMLImports.whenReady(function () {
+          Polymer({
+            is: 'test-element',
+            properties: {
+              clicks: {
+                type: Number,
+                value: 0
+              }
+            },
+            behaviors: [TSPolymerBehaviors.RemoveListenersBehavior],
+            attached() {
+              this.getEffectiveChildren().forEach(e => this.addEventListener(e, 'click', () => (++this.clicks)));
+            }
+          });
+        });
+      </script>
+    </dom-module>
+
+    <test-fixture id="basic">
+      <template>
+        <test-element></test-element>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="with3Buttons">
+      <template>
+        <test-element>
+          <button></button>
+          <button></button>
+          <button></button>
+        </test-element>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('remove-listeners-behavior', function() {
+        test('instantiating the element works', function() {
+          const element = fixture('basic');
+          assert.equal(element.is, 'test-element');
+        });
+
+        test('testing with 3 click events', function() {
+          const element = fixture('with3Buttons');
+          document.querySelectorAll('button').forEach(b => b.click());
+          assert.equal(element.clicks, 3);
+        });
+
+        test('testing with 3 click events while detached', function() {
+          const element = fixture('with3Buttons');
+          const buttons = document.querySelectorAll('button')
+          element.parentElement.removeChild(element);
+          buttons.forEach(b => b.click());
+          assert.equal(element.clicks, 0);
+        });
+      });
+    </script>
+  </body>
+</html>

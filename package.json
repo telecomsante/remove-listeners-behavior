@@ -1,0 +1,37 @@
+{
+  "name": "remove-listeners-behavior",
+  "version": "0.0.0",
+  "description": "This Polymer behavior automatically removes event listeners registered through it when the component is detached from the DOM",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "polymer-cli": "^0.17.0",
+    "xo": "^0.17.1"
+  },
+  "scripts": {
+    "start": "polymer serve --open",
+    "polymer": "polymer",
+    "bower": "bower",
+    "postinstall": "bower install",
+    "pretest": "npm install",
+    "test": "xo && polymer test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/telecomsante/remove-listeners-behavior.git"
+  },
+  "keywords": [
+    "polymer",
+    "behavior",
+    "event",
+    "listener",
+    "remove"
+  ],
+  "author": "gautaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/telecomsante/remove-listeners-behavior/issues"
+  },
+  "homepage": "https://github.com/telecomsante/remove-listeners-behavior#readme"
+}
