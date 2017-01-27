@@ -1,0 +1,31 @@
+{
+  "name": "remove-listeners-behavior",
+  "description": "This Polymer behavior automatically removes event listeners registered through it when the component is detached from the DOM",
+  "main": "remove-listeners-behavior.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
+    "paper-badge": "PolymerElements/paper-badge#^1.1.4"
+  },
+  "ignore": [
+    "demo",
+    "package.json",
+    "test"
+  ],
+  "homepage": "https://github.com/telecomsante/remove-listeners-behavior",
+  "_release": "b27c47bdd4",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "b27c47bdd432a5b4eede8746a03d5de978704b5e"
+  },
+  "_source": "https://github.com/telecomsante/remove-listeners-behavior.git",
+  "_target": "master",
+  "_originalSource": "telecomsante/remove-listeners-behavior",
+  "_direct": true
+}

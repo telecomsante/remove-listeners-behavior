@@ -1,0 +1,20 @@
+{
+  "name": "remove-listeners-behavior",
+  "description": "This Polymer behavior automatically removes event listeners registered through it when the component is detached from the DOM",
+  "main": "remove-listeners-behavior.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
+    "paper-badge": "PolymerElements/paper-badge#^1.1.4"
+  },
+  "ignore": [
+    "demo",
+    "package.json",
+    "test"
+  ]
+}

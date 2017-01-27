@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>remove-listeners-behavior demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../paper-badge/paper-badge.html">
+    <link rel="import" href="../remove-listeners-behavior.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+      demo-snippet {
+        --demo-snippet: {
+          width: 95%;
+          margin: 0px;
+        };
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic remove-listeners-behavior demo</h3>
+      <demo-snippet>
+        <template is="dom-bind">
+          <dom-module id="demo-element">
+            <template>
+              <style>
+                #button {
+                  display: none;
+                }
+              </style>
+              <button id="button">click</button>
+            </template>
+            <script>
+              HTMLImports.whenReady(function () {
+                Polymer({
+                  is: 'demo-element',
+                  properties: {
+                    captured: {
+                      type: Number,
+                      value: 0,
+                      notify: true
+                    },
+                    sent: {
+                      type: Number,
+                      value: 0,
+                      notify: true
+                    }
+                  },
+                  behaviors: [TSPolymerBehaviors.RemoveListenersBehavior],
+                  ready() {
+                    setInterval(() => ++this.sent && this.$.button.click(), 500);
+                  },
+                  attached() {
+                    this.registerEventListener(this.$.button, 'click', () => (++this.captured));
+                  }
+                });
+              });
+            </script>
+          </dom-module>
+
+          <h4>The captured clicks will not increment while the component is detached from the DOM</h4>
+          <div>
+            <pre id="sent">sent clicks</pre>
+            <paper-badge for="sent" label="{{sent}}"></paper-badge>
+            <pre id="captured">captured clicks</pre>
+            <paper-badge for="captured" label="{{captured}}"></paper-badge>
+          </div>
+          <input type="checkbox" id="attached" checked>Component is attached to the DOM</input>
+          <div id="mountpoint">
+            <demo-element id="component" captured="{{captured}}" sent="{{sent}}"></demo-element>
+          </div>
+        </template>
+      </demo-snippet>
+
+      <script>
+        document.addEventListener('WebComponentsReady', () => {
+          const attached = document.getElementById('attached');
+          const mountpoint = document.getElementById('mountpoint');
+          const component = document.getElementById('component');
+          attached.addEventListener('change', () => {
+            if (attached.checked) {
+              mountpoint.appendChild(component);
+            } else {
+              mountpoint.removeChild(component);
+            }
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
