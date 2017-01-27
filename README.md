@@ -9,7 +9,7 @@ This is done at the expense of using an alternate registration method to add an 
 ```html
 <link rel="import" href="../remove-listeners-behavior/remove-listeners-behavior.html">
 
-<dom-module id="demo-element">
+<dom-module id="example-element">
   <template>
     <button id="button">click</button>
   </template>
