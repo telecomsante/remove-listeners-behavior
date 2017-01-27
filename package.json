@@ -1,6 +1,6 @@
 {
   "name": "remove-listeners-behavior",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This Polymer behavior automatically removes event listeners registered through it when the component is detached from the DOM",
   "main": "remove-listeners-behavior.js",
   "dependencies": {},
