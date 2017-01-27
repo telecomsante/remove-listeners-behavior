@@ -29,7 +29,7 @@
             },
             behaviors: [TSPolymerBehaviors.RemoveListenersBehavior],
             attached() {
-              this.getEffectiveChildren().forEach(e => this.addEventListener(e, 'click', () => (++this.clicks)));
+              this.getEffectiveChildren().forEach(e => this.registerEventListener(e, 'click', () => (++this.clicks)));
             }
           });
         });

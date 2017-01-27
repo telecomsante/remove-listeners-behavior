@@ -5,7 +5,7 @@
 	/**
 	 * `TSPolymerBehaviors.RemoveListenersBehavior` allows an element to remove all of its listeners automatically when the `detached` callback is executed.
 	 *
-	 * Polymer components that consume this behavior have to use their own `addEventListener` method to add new listeners in order for them to be removed by the behavior's `detached` callback.
+	 * Polymer components that consume this behavior have to use their own `registerEventListener` method to add new listeners in order for them to be removed by the behavior's `detached` callback.
 	 *
 	 * @demo demo/index.html
 	 * @polymerBehavior TSPolymerBehaviors.RemoveListenersBehavior
@@ -21,13 +21,13 @@
 		},
 
 		/**
-		 * Adds a new auto-removed listener on a target element.
+		 * Registers a new auto-removed listener on a target element.
 		 *
 		 * @param {Element} target The listener will be added to this element.
 		 * @param {String} type The type of event to listen to.
 		 * @param {Function} listener The listener to be added (and automatically removed on DOM detach).
 		 */
-		addEventListener(target, type, listener) {
+		registerEventListener(target, type, listener) {
 			target.addEventListener(type, listener);
 			this._tsRegisteredEventListeners.push({target, type, listener});
 		}

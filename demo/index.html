@@ -57,7 +57,7 @@
                     setInterval(() => ++this.sent && this.$.button.click(), 500);
                   },
                   attached() {
-                    this.addEventListener(this.$.button, 'click', () => (++this.captured));
+                    this.registerEventListener(this.$.button, 'click', () => (++this.captured));
                   }
                 });
               });
