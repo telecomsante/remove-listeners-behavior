@@ -3,9 +3,9 @@
 	window.TSPolymerBehaviors = window.TSPolymerBehaviors || {};
 
 	/**
-	 * `TSPolymerBehaviors.RemoveListenersBehavior` allows an element to remove all its listeners automatically when the `detached` callback is executed.
+	 * `TSPolymerBehaviors.RemoveListenersBehavior` allows an element to remove all of its listeners automatically when the `detached` callback is executed.
 	 *
-	 * Polymer components that consume this behavior has to use the `addEventListener` method to add new listeners in order for them to be removed on `detached`.
+	 * Polymer components that consume this behavior have to use their own `addEventListener` method to add new listeners in order for them to be removed by the behavior's `detached` callback.
 	 *
 	 * @demo demo/index.html
 	 * @polymerBehavior TSPolymerBehaviors.RemoveListenersBehavior
@@ -21,7 +21,7 @@
 		},
 
 		/**
-		 * Adds a new listener on a target element.
+		 * Adds a new auto-removed listener on a target element.
 		 *
 		 * @param {Element} target The listener will be added to this element.
 		 * @param {String} type The type of event to listen to.
