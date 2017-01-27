@@ -14,7 +14,6 @@
   },
   "ignore": [
     "demo",
-    "index.html",
     "package.json",
     "test"
   ]
